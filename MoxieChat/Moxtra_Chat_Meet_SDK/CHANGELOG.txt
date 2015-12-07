@@ -1,0 +1,56 @@
+1.3.2
+	- New: Delegate to support auto recording when starting a Meet
+	- New: Cross-org invitation support 
+	- New: Delegate to support enabling audio option (VoIP, Dial-In, All, No Audio)
+	- New: Added meetID parameter in the meetStarted delegate 
+	- New: Support Meet recording via delegate after the meet is ended
+	- Bug Fix: Enforcement based on package restrictions
+	- Minor Bug fixes
+
+1.3.1
+	- Fixed issues related to iOS 9
+
+1.3.0
+	- Minor Bug Fixes
+
+1.2.9
+	- Added timeout parameter to initializeUserAccount API 
+
+1.2.8
+	- Fixed crash issues
+
+1.2.7
+	- Return binderID with receiveRemoteNotificationWithUserInfo API call
+
+1.2.6
+	- Bug Fix: Member list doesn’t show up in certain cases when Meet is started from the Binder
+	- Bug Fix: Hide “To-Do” in the search UI based on org settings
+
+1.2.5
+	- Support Sandbox Environment
+	- Support new features based on Moxtra 2.9 release
+	- Bug Fixes
+
+1.2.4	
+	- added callback event for “share”
+	- Support branding and configuration
+	- Minor bug fixes
+
+1.2.3
+	- 64-bit support
+
+1.2.2
+	- iOS 8 Support
+	- Minor bug fixes
+
+1.2.1
+	- Minor bug fixes
+
+1.2.0
+	- Push notification support
+	- Minor bug fixes
+
+1.0.0 
+	- Embed chat in iOS App
+	- Start meet from embedded chat
+	- Create clip or annotate on content and share inside chat	

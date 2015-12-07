@@ -1,4 +1,3 @@
-# moxtra-chat-ios-sample
+# MoxieChat
 
-iOS sample app for Moxtra Chat SDK
 Please goto https://developer.moxtra.com/ for more information.

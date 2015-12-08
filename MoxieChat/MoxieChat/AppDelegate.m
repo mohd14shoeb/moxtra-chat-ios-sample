@@ -7,9 +7,19 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+#import "Moxtra.h"
+
+
+#define str(x) @_str(x)
+#define _str(x) #x
+
+#define MOXTRASDK_TEST_APP_ClientID         vY86Cl-BouY     //please add your client ID and secret
+#define MOXTRASDK_TEST_APP_ClientSecret     u46aYNSnQDc     //please add your client ID and secret
+
 
 @interface AppDelegate ()
-
+@property (strong, nonatomic) ViewController *viewController;
 @end
 
 @implementation AppDelegate
@@ -17,6 +27,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // Fill in the App Client ID and Client Secret Key received from the app registration step from Moxtra
+    NSString *APP_CLIENT_ID = str(MOXTRASDK_TEST_APP_ClientID);
+    NSString *APP_CLIENT_SECRET = str(MOXTRASDK_TEST_APP_ClientSecret);
+    
+    // Initialize Moxtra SDK
+    // Set the serverType to productionServer when pointing your app to production environment
+    [Moxtra clientWithApplicationClientID:APP_CLIENT_ID applicationClientSecret:APP_CLIENT_SECRET serverType: sandboxServer ];
+    
+    // Set root view controller
+    self.viewController = [[ViewController alloc] initWithNibName:nil bundle:nil];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    self.window.rootViewController = navController;
+    
     return YES;
 }
 

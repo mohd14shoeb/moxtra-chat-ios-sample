@@ -12,8 +12,9 @@
 #define MOXTRASDK_TEST_USER1_UniqueID       JohnDoe         //dummy user1
 #define MOXTRASDK_TEST_USER2_UniqueID       KevinRichardson //dummy user2
 
-@interface ViewController ()<MXClientChatDelegate>
-
+@interface ViewController ()<MXClientChatDelegate, UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, readwrite, strong) UITableView *tableView;
+@property (nonatomic, readwrite, strong) NSMutableArray *chatList;
 @end
 
 @implementation ViewController
@@ -24,6 +25,12 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:[[UIBarButtonItem alloc] initWithTitle:@"APIs" style:UIBarButtonItemStylePlain target:self action:@selector(MXSDKAPISelect:)],
                                               nil];
+    
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview:self.tableView];
 }
 
 - (void)MXSDKAPISelect:(id)sender
@@ -37,6 +44,10 @@
     
     [alert addAction:[UIAlertAction actionWithTitle:@"Unlink Account" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [weakSelf unlinkMoxtraAccount];
+    }]];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"Fetch Chat List" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf fetchChatList];
     }]];
     
     [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -79,9 +90,68 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)fetchChatList
+{
+    NSArray *chatListArray = [[Moxtra sharedClient] getChatSessionArray];
+    self.chatList = [NSMutableArray arrayWithArray:chatListArray];
+    [self.tableView reloadData];
+}
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+{
+    return [self.chatList count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    static NSString *cellIdentifier = @"MXChatListCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    MXChatSession *chatGroup = [self.chatList objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@",chatGroup.topic];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+
+#pragma mark - MXClientChatDelegate
+- (void)onChatSessionUpdated:(MXChatSession*)chatSession;
+{
+    if (chatSession)
+    {
+        [self.tableView reloadData];
+    }
+}
+
+- (void)onChatSessionCreated:(MXChatSession*)chatSession;
+{
+    if (chatSession)
+    {
+        [self.chatList addObject:chatSession];
+        [self.tableView reloadData];
+    }
+}
+- (void)onChatSessionDeleted:(MXChatSession*)chatSession;
+{
+    if (chatSession)
+    {
+        [self.chatList removeObject:chatSession];
+        [self.tableView reloadData];
+    }
 }
 
 @end

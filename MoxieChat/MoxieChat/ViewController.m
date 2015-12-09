@@ -58,6 +58,10 @@
         [weakSelf startMeet];
     }]];
     
+    [alert addAction:[UIAlertAction actionWithTitle:@"Join Meet" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf joinMeet];
+    }]];
+    
     [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
     }]];
@@ -141,6 +145,37 @@
         
         NSLog(@"Start meet failed, %@", [NSString stringWithFormat:@"error code [%ld] description: [%@] info [%@]", (long)[error code], [error localizedDescription], [[error userInfo] description]]);
     }];
+}
+
+- (void)joinMeet
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Input Meet ID" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"meetid";
+        textField.textColor = [UIColor blackColor];
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        textField.borderStyle = UITextBorderStyleRoundedRect;
+    }];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+
+    }]];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"Join" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSArray * textfields = alert.textFields;
+        UITextField * idfield = textfields[0];
+        [[Moxtra sharedClient] joinMeet:idfield.text withUserName:@"Ken" success:^(NSString *meetID) {
+            
+            NSLog(@"Join meet successfully");
+        } failure:^(NSError *error) {
+            
+            NSLog(@"Join meet failed, %@", [NSString stringWithFormat:@"error code [%ld] description: [%@] info [%@]", (long)[error code], [error localizedDescription], [[error userInfo] description]]);
+        }];
+    }]];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - UITableViewDataSource

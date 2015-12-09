@@ -112,13 +112,14 @@
     }
     NSString *datetimestr = [dateFormatter stringFromDate:[NSDate date]];
     NSString *topic = [NSString stringWithFormat:@"chat-%@", datetimestr];
+    __weak typeof(self) weakSelf = self;
     [[Moxtra sharedClient] createChat:topic inviteMembersUniqueID:nil success:^(NSString *binderID, UIViewController *chatViewController) {
         
         NSLog(@"Start a new chat successfully");
         if (chatViewController)
         {
-            [self.navigationController setNavigationBarHidden:YES animated:NO];
-            [self.navigationController pushViewController:chatViewController animated:YES];
+            [weakSelf.navigationController setNavigationBarHidden:YES animated:NO];
+            [weakSelf.navigationController pushViewController:chatViewController animated:YES];
         }
         
     } failure:^(NSError *error) {
@@ -154,7 +155,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    MXChatSession *chat = [self.chatList objectAtIndex:indexPath.row];
+    __weak typeof(self) weakSelf = self;
+    [[Moxtra sharedClient] getChatViewController:chat.binderID success:^(UIViewController *chatViewController) {
+        
+        NSLog(@"open a chat successfully");
+        if (chatViewController)
+        {
+            [weakSelf.navigationController setNavigationBarHidden:YES animated:NO];
+            [weakSelf.navigationController pushViewController:chatViewController animated:YES];
+        }
+    } failure:^(NSError *error) {
     
+        NSLog(@"open a chat failed, %@", [NSString stringWithFormat:@"error code [%ld] description: [%@] info [%@]", (long)[error code], [error localizedDescription], [[error userInfo] description]]);
+    }];
 }
 
 

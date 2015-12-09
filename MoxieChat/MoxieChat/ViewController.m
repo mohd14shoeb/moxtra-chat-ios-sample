@@ -50,6 +50,10 @@
         [weakSelf fetchChatList];
     }]];
     
+    [alert addAction:[UIAlertAction actionWithTitle:@"New Chat" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf startNewChat];
+    }]];
+    
     [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
     }]];
@@ -95,6 +99,32 @@
     NSArray *chatListArray = [[Moxtra sharedClient] getChatSessionArray];
     self.chatList = [NSMutableArray arrayWithArray:chatListArray];
     [self.tableView reloadData];
+}
+
+- (void)startNewChat
+{
+	static NSDateFormatter *dateFormatter = nil;
+    if( dateFormatter == nil )
+    {
+        [NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM-dd-YYYY HH:mm:ss.SSS"];
+    }
+    NSString *datetimestr = [dateFormatter stringFromDate:[NSDate date]];
+    NSString *topic = [NSString stringWithFormat:@"chat-%@", datetimestr];
+    [[Moxtra sharedClient] createChat:topic inviteMembersUniqueID:nil success:^(NSString *binderID, UIViewController *chatViewController) {
+        
+        NSLog(@"Start a new chat successfully");
+        if (chatViewController)
+        {
+            [self.navigationController setNavigationBarHidden:YES animated:NO];
+            [self.navigationController pushViewController:chatViewController animated:YES];
+        }
+        
+    } failure:^(NSError *error) {
+        
+        NSLog(@"Start a new chat failed, %@", [NSString stringWithFormat:@"error code [%ld] description: [%@] info [%@]", (long)[error code], [error localizedDescription], [[error userInfo] description]]);
+    }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -154,4 +184,11 @@
     }
 }
 
+- (void)popChatViewController:(UIViewController*)chatViewController isDeleted:(BOOL)isDeleted;
+{
+    [chatViewController.navigationController setNavigationBarHidden:NO animated:NO];
+    
+    if (chatViewController)
+        [chatViewController.navigationController popViewControllerAnimated:YES];
+}
 @end

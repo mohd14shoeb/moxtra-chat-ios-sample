@@ -54,6 +54,10 @@
         [weakSelf startNewChat];
     }]];
     
+    [alert addAction:[UIAlertAction actionWithTitle:@"Start Meet" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf startMeet];
+    }]];
+    
     [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
     }]];
@@ -125,6 +129,17 @@
     } failure:^(NSError *error) {
         
         NSLog(@"Start a new chat failed, %@", [NSString stringWithFormat:@"error code [%ld] description: [%@] info [%@]", (long)[error code], [error localizedDescription], [[error userInfo] description]]);
+    }];
+}
+
+- (void)startMeet
+{
+    [[Moxtra sharedClient] startMeet:@"Meet" inviteAttendeesUniqueID:nil success:^(NSString *meetID) {
+        
+        NSLog(@"Start meet successfully");
+    } failure:^(NSError *error) {
+        
+        NSLog(@"Start meet failed, %@", [NSString stringWithFormat:@"error code [%ld] description: [%@] info [%@]", (long)[error code], [error localizedDescription], [[error userInfo] description]]);
     }];
 }
 

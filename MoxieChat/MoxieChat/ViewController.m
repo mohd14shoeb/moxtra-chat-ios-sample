@@ -15,6 +15,7 @@
 @interface ViewController ()<MXClientChatDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, readwrite, strong) UITableView *tableView;
 @property (nonatomic, readwrite, strong) NSMutableArray *chatList;
+@property (nonatomic, readwrite, copy) NSString *lastOpenBinderID;
 @end
 
 @implementation ViewController
@@ -60,6 +61,10 @@
     
     [alert addAction:[UIAlertAction actionWithTitle:@"Join Meet" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [weakSelf joinMeet];
+    }]];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"Delete Last Open Chat" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf deleteLastOpenChat];
     }]];
     
     [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -126,6 +131,7 @@
         NSLog(@"Start a new chat successfully");
         if (chatViewController)
         {
+            weakSelf.lastOpenBinderID = binderID;
             [weakSelf.navigationController setNavigationBarHidden:YES animated:NO];
             [weakSelf.navigationController pushViewController:chatViewController animated:YES];
         }
@@ -178,6 +184,17 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+- (void)deleteLastOpenChat
+{
+    [[Moxtra sharedClient] deleteChat:self.lastOpenBinderID success:^{
+        
+        NSLog(@"Delete chat successfully");
+    } failure:^(NSError *error) {
+       
+        NSLog(@"Delete chat failed, %@", [NSString stringWithFormat:@"error code [%ld] description: [%@] info [%@]", (long)[error code], [error localizedDescription], [[error userInfo] description]]);
+    }];
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -212,6 +229,7 @@
         NSLog(@"open a chat successfully");
         if (chatViewController)
         {
+            weakSelf.lastOpenBinderID = chat.binderID;
             [weakSelf.navigationController setNavigationBarHidden:YES animated:NO];
             [weakSelf.navigationController pushViewController:chatViewController animated:YES];
         }

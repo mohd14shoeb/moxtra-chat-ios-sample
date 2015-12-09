@@ -12,7 +12,7 @@
 #define MOXTRASDK_TEST_USER1_UniqueID       JohnDoe         //dummy user1
 #define MOXTRASDK_TEST_USER2_UniqueID       KevinRichardson //dummy user2
 
-@interface ViewController ()
+@interface ViewController ()<MXClientChatDelegate>
 
 @end
 
@@ -63,6 +63,9 @@
         
         NSLog(@"Initialize user failed, %@", [NSString stringWithFormat:@"error code [%ld] description: [%@] info [%@]", (long)[error code], [error localizedDescription], [[error userInfo] description]]);
     }];
+    
+    // Set delegate
+    [Moxtra sharedClient].delegate = self;
 }
 
 - (void)unlinkMoxtraAccount

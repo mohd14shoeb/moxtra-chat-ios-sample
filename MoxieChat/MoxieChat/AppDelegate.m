@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-#import "Moxtra.h"
+#import <ChatSDK/MXChatSDK.h>
 
 
 #define str(x) @_str(x)
@@ -34,7 +34,7 @@
     
     // Initialize Moxtra SDK
     // Set the serverType to productionServer when pointing your app to production environment
-    [Moxtra clientWithApplicationClientID:APP_CLIENT_ID applicationClientSecret:APP_CLIENT_SECRET serverType: sandboxServer ];
+    [Moxtra clientWithApplicationClientID:APP_CLIENT_ID applicationClientSecret:APP_CLIENT_SECRET serverType: sandboxServer httpsDomain:nil wssDomain:nil];
     
     // Set root view controller
     self.viewController = [[ViewController alloc] initWithNibName:nil bundle:nil];

@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "Moxtra.h"
+#import <ChatSDK/MXChatSDK.h>
 
 #define MOXTRASDK_TEST_USER1_UniqueID       JohnDoe         //dummy user1
 #define MOXTRASDK_TEST_USER2_UniqueID       KevinRichardson //dummy user2

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE089B841D36173600956CF0 /* CHANGELOG.txt in Resources */ = {isa = PBXBuildFile; fileRef = BE089B7E1D36173600956CF0 /* CHANGELOG.txt */; };
+		BE089B851D36173600956CF0 /* ChatSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE089B801D36173600956CF0 /* ChatSDK.framework */; };
+		BE089B861D36173600956CF0 /* ChatSDKResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BE089B811D36173600956CF0 /* ChatSDKResource.bundle */; };
+		BE089B871D36173600956CF0 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = BE089B821D36173600956CF0 /* VERSION */; };
+		BE089B881D36173600956CF0 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = BE089B831D36173600956CF0 /* README.txt */; };
 		BE50058B1C1583BF004CC3F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE50058A1C1583BF004CC3F5 /* main.m */; };
 		BE50058E1C1583BF004CC3F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE50058D1C1583BF004CC3F5 /* AppDelegate.m */; };
 		BE5005911C1583BF004CC3F5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5005901C1583BF004CC3F5 /* ViewController.m */; };
@@ -15,11 +20,6 @@
 		BE5005991C1583BF004CC3F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE5005971C1583BF004CC3F5 /* LaunchScreen.storyboard */; };
 		BE5005A41C1583BF004CC3F5 /* MoxieChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5005A31C1583BF004CC3F5 /* MoxieChatTests.m */; };
 		BE5005AF1C1583BF004CC3F5 /* MoxieChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5005AE1C1583BF004CC3F5 /* MoxieChatUITests.m */; };
-		BE731B751C15C2A500426548 /* CHANGELOG.txt in Resources */ = {isa = PBXBuildFile; fileRef = BE731B6D1C15C2A500426548 /* CHANGELOG.txt */; };
-		BE731B761C15C2A500426548 /* MoxtraConversationResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BE731B701C15C2A500426548 /* MoxtraConversationResources.bundle */; };
-		BE731B771C15C2A500426548 /* MoxtraConversationSDK in Frameworks */ = {isa = PBXBuildFile; fileRef = BE731B711C15C2A500426548 /* MoxtraConversationSDK */; };
-		BE731B781C15C2A500426548 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = BE731B731C15C2A500426548 /* VERSION */; };
-		BE731B791C15C2A500426548 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = BE731B741C15C2A500426548 /* README.txt */; };
 		BE731B981C15C59000426548 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE731B7B1C15C59000426548 /* Accelerate.framework */; };
 		BE731B991C15C59000426548 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE731B7C1C15C59000426548 /* AddressBook.framework */; };
 		BE731B9A1C15C59000426548 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE731B7D1C15C59000426548 /* AddressBookUI.framework */; };
@@ -73,6 +73,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE089B7E1D36173600956CF0 /* CHANGELOG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.txt; sourceTree = "<group>"; };
+		BE089B801D36173600956CF0 /* ChatSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ChatSDK.framework; sourceTree = "<group>"; };
+		BE089B811D36173600956CF0 /* ChatSDKResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ChatSDKResource.bundle; sourceTree = "<group>"; };
+		BE089B821D36173600956CF0 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
+		BE089B831D36173600956CF0 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		BE5005861C1583BF004CC3F5 /* MoxieChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoxieChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE50058A1C1583BF004CC3F5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BE50058C1C1583BF004CC3F5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -89,13 +94,6 @@
 		BE5005AA1C1583BF004CC3F5 /* MoxieChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoxieChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5005AE1C1583BF004CC3F5 /* MoxieChatUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoxieChatUITests.m; sourceTree = "<group>"; };
 		BE5005B01C1583BF004CC3F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE731B6D1C15C2A500426548 /* CHANGELOG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.txt; sourceTree = "<group>"; };
-		BE731B6F1C15C2A500426548 /* Moxtra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Moxtra.h; sourceTree = "<group>"; };
-		BE731B701C15C2A500426548 /* MoxtraConversationResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MoxtraConversationResources.bundle; sourceTree = "<group>"; };
-		BE731B711C15C2A500426548 /* MoxtraConversationSDK */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = MoxtraConversationSDK; sourceTree = "<group>"; };
-		BE731B721C15C2A500426548 /* MXClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXClient.h; sourceTree = "<group>"; };
-		BE731B731C15C2A500426548 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
-		BE731B741C15C2A500426548 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		BE731B7B1C15C59000426548 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
 		BE731B7C1C15C59000426548 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AddressBook.framework; sourceTree = DEVELOPER_DIR; };
 		BE731B7D1C15C59000426548 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AddressBookUI.framework; sourceTree = DEVELOPER_DIR; };
@@ -146,7 +144,6 @@
 				BE731BAA1C15C59000426548 /* ImageIO.framework in Frameworks */,
 				BE731BAC1C15C59000426548 /* MediaPlayer.framework in Frameworks */,
 				BE731BBB1C15C6E600426548 /* libxml2.2.dylib in Frameworks */,
-				BE731B771C15C2A500426548 /* MoxtraConversationSDK in Frameworks */,
 				BE731B9E1C15C59000426548 /* CFNetwork.framework in Frameworks */,
 				BE731BA41C15C59000426548 /* CoreMedia.framework in Frameworks */,
 				BE731BA91C15C59000426548 /* Foundation.framework in Frameworks */,
@@ -160,6 +157,7 @@
 				BE731BB11C15C59000426548 /* Security.framework in Frameworks */,
 				BE731BA81C15C59000426548 /* EventKit.framework in Frameworks */,
 				BE731BB41C15C59000426548 /* UIKit.framework in Frameworks */,
+				BE089B851D36173600956CF0 /* ChatSDK.framework in Frameworks */,
 				BE731B9B1C15C59000426548 /* AssetsLibrary.framework in Frameworks */,
 				BE731B9D1C15C59000426548 /* AVFoundation.framework in Frameworks */,
 				BE731BB31C15C59000426548 /* SystemConfiguration.framework in Frameworks */,
@@ -190,11 +188,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE089B7D1D36173600956CF0 /* Moxtra_Chat_Meet_SDK */ = {
+			isa = PBXGroup;
+			children = (
+				BE089B7E1D36173600956CF0 /* CHANGELOG.txt */,
+				BE089B7F1D36173600956CF0 /* MoxtraConversationSDK.sdk */,
+				BE089B831D36173600956CF0 /* README.txt */,
+			);
+			path = Moxtra_Chat_Meet_SDK;
+			sourceTree = "<group>";
+		};
+		BE089B7F1D36173600956CF0 /* MoxtraConversationSDK.sdk */ = {
+			isa = PBXGroup;
+			children = (
+				BE089B801D36173600956CF0 /* ChatSDK.framework */,
+				BE089B811D36173600956CF0 /* ChatSDKResource.bundle */,
+				BE089B821D36173600956CF0 /* VERSION */,
+			);
+			path = MoxtraConversationSDK.sdk;
+			sourceTree = "<group>";
+		};
 		BE50057D1C1583BF004CC3F5 = {
 			isa = PBXGroup;
 			children = (
 				BE731B7A1C15C56B00426548 /* Frameworks */,
-				BE731B6C1C15C2A500426548 /* Moxtra_Chat_Meet_SDK */,
+				BE089B7D1D36173600956CF0 /* Moxtra_Chat_Meet_SDK */,
 				BE5005881C1583BF004CC3F5 /* MoxieChat */,
 				BE5005A21C1583BF004CC3F5 /* MoxieChatTests */,
 				BE5005AD1C1583BF004CC3F5 /* MoxieChatUITests */,
@@ -252,28 +270,6 @@
 				BE5005B01C1583BF004CC3F5 /* Info.plist */,
 			);
 			path = MoxieChatUITests;
-			sourceTree = "<group>";
-		};
-		BE731B6C1C15C2A500426548 /* Moxtra_Chat_Meet_SDK */ = {
-			isa = PBXGroup;
-			children = (
-				BE731B6D1C15C2A500426548 /* CHANGELOG.txt */,
-				BE731B6E1C15C2A500426548 /* MoxtraConversationSDK.sdk */,
-				BE731B741C15C2A500426548 /* README.txt */,
-			);
-			path = Moxtra_Chat_Meet_SDK;
-			sourceTree = "<group>";
-		};
-		BE731B6E1C15C2A500426548 /* MoxtraConversationSDK.sdk */ = {
-			isa = PBXGroup;
-			children = (
-				BE731B6F1C15C2A500426548 /* Moxtra.h */,
-				BE731B701C15C2A500426548 /* MoxtraConversationResources.bundle */,
-				BE731B711C15C2A500426548 /* MoxtraConversationSDK */,
-				BE731B721C15C2A500426548 /* MXClient.h */,
-				BE731B731C15C2A500426548 /* VERSION */,
-			);
-			path = MoxtraConversationSDK.sdk;
 			sourceTree = "<group>";
 		};
 		BE731B7A1C15C56B00426548 /* Frameworks */ = {
@@ -426,11 +422,11 @@
 			files = (
 				BE5005991C1583BF004CC3F5 /* LaunchScreen.storyboard in Resources */,
 				BE5005961C1583BF004CC3F5 /* Assets.xcassets in Resources */,
+				BE089B881D36173600956CF0 /* README.txt in Resources */,
+				BE089B861D36173600956CF0 /* ChatSDKResource.bundle in Resources */,
 				BE5005941C1583BF004CC3F5 /* Main.storyboard in Resources */,
-				BE731B781C15C2A500426548 /* VERSION in Resources */,
-				BE731B761C15C2A500426548 /* MoxtraConversationResources.bundle in Resources */,
-				BE731B791C15C2A500426548 /* README.txt in Resources */,
-				BE731B751C15C2A500426548 /* CHANGELOG.txt in Resources */,
+				BE089B841D36173600956CF0 /* CHANGELOG.txt in Resources */,
+				BE089B871D36173600956CF0 /* VERSION in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +594,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Moxtra_Chat_Meet_SDK/MoxtraConversationSDK.sdk",
+				);
 				INFOPLIST_FILE = MoxieChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.moxtra.MoxieChat;
@@ -609,6 +609,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Moxtra_Chat_Meet_SDK/MoxtraConversationSDK.sdk",
+				);
 				INFOPLIST_FILE = MoxieChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.moxtra.MoxieChat;
